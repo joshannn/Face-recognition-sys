@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import YOLO
 
-model = YOLO("yolov8n.pt")  # lightweight
+model = YOLO("yolov8n.pt")  
 
 cap = cv2.VideoCapture(0)
 FRAME_W, FRAME_H = 640, 480
@@ -11,7 +11,7 @@ while True:
     if not ret:
         break
 
-    results = model(frame, conf=0.4, classes=[0])  # class 0 = person
+    results = model(frame, conf=0.4, classes=[0])  
 
     if results[0].boxes:
         box = results[0].boxes.xyxy[0]
@@ -35,3 +35,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
